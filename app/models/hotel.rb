@@ -3,6 +3,11 @@ class Hotel < ApplicationRecord
   belongs_to :user
   has_many :ratings
   has_many :users, through: :ratings
+  
 
-  accepts_nested_attributes_for
+  def location_attributes=(attributes)
+    if !attributes[:city].blank? && !attributes[:state].blank?
+      self.location = Location.find_or_create_by(attributes) 
+    end
+  end
 end

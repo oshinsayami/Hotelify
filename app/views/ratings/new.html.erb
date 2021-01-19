@@ -1,0 +1,19 @@
+<% if params[:hotel_id] %>
+    <h1> Add a Rating for <%= @rating.hotel.name %> </h1>
+<% else %>
+    <h1> Create a review </h1>
+<% end %>
+
+<%= form_for(@rating) do |f| %>
+    <div>
+    <%= f.label :stars %>
+    <%= f.number_field :stars, min:0, max:5 %>
+    </div>
+    <div>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+    </div> 
+    <%= f.hidden_field :hotel_id %><br>
+    
+    <%= f.submit %>
+<% end %>

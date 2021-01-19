@@ -1,0 +1,9 @@
+<h1> HOTELS </h1>
+<% @hotels.each do |h| %>
+   <b><%= h.name %>, 
+    <%= h.location.city %>, <%= h.location.state %> - 
+    $<%= h.price %></b>
+    <%= link_to "Rate this Hotel", new_hotel_rating_path(h.id)%><br>
+    Free Wifi: <%= h.free_wifi %><br>
+    Free Breakfast: <%= h.free_breakfast %><br>
+<% end %>

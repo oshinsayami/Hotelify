@@ -25,7 +25,7 @@
             <%= f.label :state %>
             <%= f.collection_select :location_id, Location.all,:id, :state %>
         </div>
-    <p> Or Create a new Loaction: </p>
+    <p> Or Create a new Location: </p>
         <div>
             <%= f.fields_for :location do |l| %>
                 <%= l.label :city %>
@@ -37,8 +37,5 @@
 
     <%= f.submit "ADD" %>
 <% end %>
-
-location_id
-user_id
 
 
