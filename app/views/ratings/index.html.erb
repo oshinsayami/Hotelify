@@ -1,8 +1,8 @@
 <h1> ALL RATINGS </h1>
 
 <% @ratings.each do |r| %>
-    <div>
-       <li> <%= r.hotel.name%>-<%= r.stars %> stars<br>
+    <p>
+       <li> <%= r.hotel.name%>-<%= r.stars %> stars by <%= r.user.name%><br>
         <%= r.description %></li>
-    </div>
+    </p>
 <% end %>

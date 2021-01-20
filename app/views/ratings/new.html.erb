@@ -1,10 +1,15 @@
-<% if params[:hotel_id] %>
-    <h1> Add a Rating for <%= @rating.hotel.name %> </h1>
-<% else %>
-    <h1> Create a review </h1>
-<% end %>
+<%= display_header %>
+<%= render partial: 'layouts/errors', locals: {object: @rating} %>
 
 <%= form_for(@rating) do |f| %>
+    <% if params[:hotel_id] %>
+        <%= f.hidden_field :hotel_id %>
+    <% else %>
+    <div>
+    <%= f.label :hotel_id, "Select a hotel" %>
+    <%= f.collection_select :hotel_id, Hotel.ordered_hotel, :id, :name , include_blank: true %>
+    </div>
+    <% end %>
     <div>
     <%= f.label :stars %>
     <%= f.number_field :stars, min:0, max:5 %>

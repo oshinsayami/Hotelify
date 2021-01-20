@@ -13,9 +13,14 @@
   <div>
     <%= link_to "Log Out", logout_path, method: :delete %>
     <%= link_to "Add a Hotel", new_hotel_path %>
+    <%= link_to "All Hotels", hotels_path %>
+    <%= link_to "Add a rating", new_rating_path %>
+    <%= link_to "All ratings", ratings_path %>
+    <%= link_to "All locations", locations_path %>
   </div>
 
   <body>
+  <div><%= flash[:message] %>
     <%= yield %>
   </body>
 </html>
