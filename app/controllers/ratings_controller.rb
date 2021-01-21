@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+    before_action :redirect_if_not_logged_in
 
     def new
         if @hotel = Hotel.find_by_id(params[:hotel_id])

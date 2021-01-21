@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
+    include ApplicationHelper
 
     private
-
-    def current_user
-        @current_user ||= User.find_by_id(session[:user_id])
+     
+    def redirect_if_not_logged_in
+        if !logged_in?
+                flash[:error] = "You must be logged in to access this section"
+            redirect_to login_path
+        end
     end
-
-
 end

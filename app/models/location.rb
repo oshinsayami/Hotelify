@@ -1,4 +1,5 @@
 class Location < ApplicationRecord
     has_many :hotels
-    validates :city, :state, presence: true, uniqueness: true
+    validates :city, uniqueness: {scope: :state}, presence: true
+    validates :state, presence: true
 end

@@ -4,12 +4,16 @@ class Hotel < ApplicationRecord
   has_many :ratings
   has_many :users, through: :ratings
 
+  scope :low_to_high_price, -> {order("price")}
+  scope :high_to_low_price, -> {order("price DESC")}
+
   validates :name, :price, presence: true
   validate :dublicate_attributes
   
 
   def location_attributes=(attributes)
-    if !attributes[:city].blank? || !attributes[:state].blank?
+    # byebug
+    if !attributes[:city].blank? && !attributes[:state].blank?
       self.location = Location.find_or_create_by(attributes) 
     end
   end
@@ -23,5 +27,10 @@ class Hotel < ApplicationRecord
   def self.ordered_hotel
       order(name: :asc)
   end
+
+  def self.search(params)
+    where("LOWER(name) LIKE ?", "%#{params}%")
+  end
+
 
 end

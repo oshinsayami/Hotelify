@@ -1,2 +1,19 @@
-<h1> Show page </h1>
+<h1> <%= @hotel.name %> </h1>
+<%= link_to "Rate this Hotel", new_hotel_rating_path(@hotel.id)%><br>
+Location: <%= @hotel.location.city %>, <%= @hotel.location.state %><br>
+Price: $<%= @hotel.price %><br>
 
+Free Wifi: <%= @hotel.free_wifi %><br>
+Free Breakfast: <%= @hotel.free_breakfast %><br>
+
+<% if !@hotel.ratings.empty? %>
+<h4>Recent Ratings </h4>
+<% @hotel.ratings.each do |h| %>
+    <p><%= h.description%>||<%= h.stars%>stars by <%= h.user.name %></p>
+<% end %>
+<% else %>
+    <h4> No ratings yet! Click <u>Rate this Hotel</u> at the top </h4>
+<% end %>
+
+
+    

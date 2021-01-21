@@ -24,9 +24,9 @@
     <p>Select a Location:</p>
         <div>
             <%= f.label :city %>
-            <%= f.collection_select :location_id, Location.all,:id, :city, include_blank: 'Select One' %>
+            <%= f.collection_select :location_id, Location.all, :id, :city, include_blank: 'Select One' %>
             <%= f.label :state %>
-            <%= f.collection_select :location_id, Location.all,:id, :state, include_blank: 'Select One' %>
+            <%= f.collection_select :location_id, Location.all, :id, :state, include_blank: 'Select One' %>
         </div>
     <p> Or Create a new Location: </p>
         <div>

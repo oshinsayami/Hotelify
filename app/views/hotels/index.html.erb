@@ -1,6 +1,17 @@
 <h1> HOTELS </h1>
+    <%= form_tag("/hotels", method: 'get') do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+    <% end %>
+
+    <%= form_with(url: hotels_path, method: 'get', local:true) do |f| %>
+        <%= f.select :filter, ["","Low to High Price", "High to Low Price", "Most Rated"], selected:[""], disabled:[""]%>       
+        <%= f.submit "Filter" %>
+    <% end %>
+<br>
 <% @hotels.each do |h| %>
-   <b><%= h.name %>, 
+   <b><%=link_to h.name, hotel_path(h.id) %>
     <%= h.location.city %>, <%= h.location.state %> - 
     $<%= h.price %></b>
     <%= link_to "Rate this Hotel", new_hotel_rating_path(h.id)%><br>
