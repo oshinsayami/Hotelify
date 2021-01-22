@@ -1,7 +1,7 @@
 class Hotel < ApplicationRecord
   belongs_to :location
   belongs_to :user
-  has_many :ratings
+  has_many :ratings, dependent: :destroy
   has_many :users, through: :ratings
 
   scope :low_to_high_price, -> {order("price")}
@@ -10,7 +10,7 @@ class Hotel < ApplicationRecord
   
 
   validates :name, :price, presence: true
-  validate :dublicate_attributes
+  validate :dublicate_attributes, on: :create
   
 
   def location_attributes=(attributes)

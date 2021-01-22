@@ -19,5 +19,7 @@ Free Breakfast: <%= @hotel.free_breakfast %><br>
     <h4> No ratings yet! Click <u>Rate this Hotel</u> at the top </h4>
 <% end %>
 
+<%= link_to "DELETE HOTEL", hotel_path(@hotel), method: :delete %>
+
 
     
