@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+.container {
+  background: linear-gradient(to bottom, #ffffff 0%, #ff99cc 100%);
+}
+.container {
+  /* margin: 0px; */
+  margin-left: 0;
+  margin-right: 0;
+  /* width: 100%; */
+  max-width: 100% !important;
+}
+.header a {
+  padding: 55px;
+  color: white !important;
+}
+
+.navbar-brand {
+  font-size: 3rem;
+}
+
+form#new_hotel {
+  display: grid;
+  grid-template-rows: repeat(9, 42px);
+  row-gap: 10px;
+  padding-left: 16px;
+}
+form#new_hotel div {
+  display: grid;
+  grid-template-columns: 248px 251px;
+}
+
+form#new_hotel button,
+html [type="submit"] {
+  -webkit-appearance: button;
+  background: rgba(255, 95, 95, 0.945);
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
+  width: 50%;
+  color: white;
+}
+
+h1 {
+  color: red;
+  padding: 14px;
+}

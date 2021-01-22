@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
+
   <head>
     <title>Hotelify</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,17 +11,26 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div>
-    <%= link_to "Log Out", logout_path, method: :delete %>
+  <div class='container' style="height: 100%; padding:0;" >
+
+  <div class='header' style="background: #7952b3;">
+  <% if logged_in? %>
+  <button type="button" class="btn btn-outline-secondary"><%= link_to "Log Out", logout_path, method: :delete %></button>
     <%= link_to "Add a Hotel", new_hotel_path %>
-    <%= link_to "All Hotels", hotels_path %>
     <%= link_to "Add a rating", new_rating_path %>
+  <% end %>
+    
+    <%= link_to "All Hotels", hotels_path %>
     <%= link_to "All ratings", ratings_path %>
     <%= link_to "All locations", locations_path %>
+    <%= link_to "Login", login_path %>
+    <%= link_to "Sign Up", signup_path %>
   </div>
 
-  <body>
+  <body style="height: 100%;">
   <div><%= flash[:message] %></div>
+  
     <%= yield %>
+    </div>
   </body>
 </html>

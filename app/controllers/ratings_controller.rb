@@ -1,8 +1,8 @@
 class RatingsController < ApplicationController
-    before_action :redirect_if_not_logged_in
+    before_action :redirect_if_not_logged_in, only: [:new, :create]
 
     def new
-        if @hotel = Hotel.find_by_id(params[:hotel_id])
+        if set_hotel
             @rating = @hotel.ratings.build
         else
             @rating = Rating.new
@@ -10,7 +10,7 @@ class RatingsController < ApplicationController
     end
 
     def index
-        if @hotel= Hotel.find_by_id(params[:hotel_id])
+        if set_hotel
             @ratings = @hotel.ratings
         else
             @ratings = Rating.all
@@ -31,6 +31,10 @@ class RatingsController < ApplicationController
     end
 
     private
+
+    def set_hotel
+        @hotel= Hotel.find_by_id(params[:hotel_id])
+    end
 
     def rating_params
         params.require(:rating).permit(:hotel_id, :stars, :description)

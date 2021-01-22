@@ -6,6 +6,5 @@ module RatingsHelper
         else
             content_tag(:h1, "Create a rating")
         end
-
     end
 end

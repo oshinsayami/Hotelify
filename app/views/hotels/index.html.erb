@@ -10,11 +10,13 @@
         <%= f.submit "Filter" %>
     <% end %>
 <br>
+
 <% @hotels.each do |h| %>
-   <b><%=link_to h.name, hotel_path(h.id) %>
+  <li> <b><%=link_to h.name, hotel_path(h.id) %> -
     <%= h.location.city %>, <%= h.location.state %> - 
     $<%= h.price %></b>
+    (<%= h.ratings.size %> ratings)
     <%= link_to "Rate this Hotel", new_hotel_rating_path(h.id)%><br>
     Free Wifi: <%= h.free_wifi %><br>
-    Free Breakfast: <%= h.free_breakfast %><br>
+    Free Breakfast: <%= h.free_breakfast %><br><li>
 <% end %>

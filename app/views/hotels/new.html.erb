@@ -24,21 +24,23 @@
     <p>Select a Location:</p>
         <div>
             <%= f.label :city %>
-            <%= f.collection_select :location_id, Location.all, :id, :city, include_blank: 'Select One' %>
-            <%= f.label :state %>
-            <%= f.collection_select :location_id, Location.all, :id, :state, include_blank: 'Select One' %>
-        </div>
-    <p> Or Create a new Location: </p>
+            <%= f.collection_select :location_id, Location.all, :id, :city_and_state, include_blank: 'Select One' %>
+            </div>
+    <p style="color: red;"> Or Create a new Location: </p>
         <div>
             <%= f.fields_for :location do |l| %>
                 <%= l.label :city %>
                 <%= l.text_field :city %>
+                </div>
+                <div>
                 <%= l.label :state %>
                 <%= l.text_field :state %>
+                </div>
             <% end %>
-        </div>
-
+       
+<div>
     <%= f.submit "ADD" %>
+    </div>
 <% end %>
 
 
