@@ -1,1 +1,14 @@
-Welcome <%= @user.name %>
+Welcome <%= @user.name %> <br>
+<br>
+<p><%= flash[:error] %></p>
+Recent ratings:<br>
+<% @user.ratings.each do |r| %>
+    <div>
+    <%= link_to r.hotel.name, hotel_path(r.hotel_id) %> - <%= r.stars %> stars - <%= r.description %><br>
+    <% if @user == current_user %>
+    <div>
+    <%= link_to "Edit", edit_rating_path(r.id) %> <%= link_to "Delete" , rating_path(r.id), method: :delete %><br>
+    </div>
+    <% end %>
+    </div>
+<% end %>

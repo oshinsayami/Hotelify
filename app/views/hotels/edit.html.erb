@@ -2,45 +2,4 @@
 
 <%= render partial: 'layouts/errors', locals: {object: @hotel} %>
 
-
-<%= form_for(@hotel) do |f| %>
-    <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    </div>
-    <div>
-        <%= f.label :price %>
-        <%= f.text_field :price %>
-    </div>
-    <div>
-        <%= f.label :free_wifi %>
-        <%= f.select :free_wifi, options_for_select(["Select One","Yes", "No"],:disabled => ["Select One"]) %>
-    </div>
-    <div>
-        <%= f.label :free_breakfast %>
-        <%= f.select :free_breakfast, options_for_select(["Select One","Yes", "No"],:disabled => ["Select One"]) %>
-    </div>
-
-    <p>Select a Location:</p>
-        <div>
-            <%= f.label :city %>
-            <%= f.collection_select :location_id, Location.all, :id, :city_and_state, include_blank: 'Select One' %>
-            </div>
-    <p style="color: red;"> Or Create a new Location: </p>
-        <div>
-            <%= f.fields_for :location do |l| %>
-                <%= l.label :city %>
-                <%= l.text_field :city %>
-                </div>
-                <div>
-                <%= l.label :state %>
-                <%= l.text_field :state %>
-                </div>
-            <% end %>
-       
-<div>
-    <%= f.submit%>
-    </div>
-<% end %>
-
-
+<%= render partial: "form" %>

@@ -6,4 +6,7 @@ class Location < ApplicationRecord
     def city_and_state
         "#{self.city}, #{self.state}"
     end
+
+    
 end
+

@@ -1,6 +1,12 @@
 <%= display_header %>
 <%= render partial: 'layouts/errors', locals: {object: @rating} %>
-
+<div style="
+grid-template-columns: min-content; 
+row-gap: 10px; 
+border: 3px solid gray;
+padding: 18px;
+width: 30%;
+margin: auto; ">
 <%= form_for(@rating) do |f| %>
     <% if params[:hotel_id] %>
         <%= f.hidden_field :hotel_id %>
@@ -19,6 +25,8 @@
         <%= f.text_area :description %>
     </div> 
     
-    
+    <div>
     <%= f.submit %>
+    </div>
+    </div>
 <% end %>

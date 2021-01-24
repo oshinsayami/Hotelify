@@ -30,7 +30,11 @@ class Hotel < ApplicationRecord
   end
 
   def self.search(params)
-    where("LOWER(name) LIKE ?", "%#{params}%")
+    joins(:location).where("LOWER(hotels.name) LIKE :term OR LOWER(locations.city) LIKE :term OR LOWER(locations.state) LIKE :term", term: "%#{params}%")
+
   end
+
+
+  
 
 end

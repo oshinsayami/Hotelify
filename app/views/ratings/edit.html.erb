@@ -1,0 +1,15 @@
+<h1>Edit the rating for <%= @rating.hotel.name %></h1>
+
+<%= form_for(@rating) do |f| %>
+    <div>
+    <%= f.label :stars %>
+    <%= f.number_field :stars, min:0, max:5 %>
+    </div>
+    <div>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+    </div> 
+    
+    
+    <%= f.submit %>
+<% end %>

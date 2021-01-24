@@ -1,6 +1,9 @@
 class HotelsController < ApplicationController
+    before_action :set_hotel, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_logged_in, only: [:show, :new, :create]
-   
+    before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
+    
+
     def index
         if params[:q] && !params[:q].empty?
             @hotels = Hotel.search(params[:q].downcase) 
@@ -12,12 +15,11 @@ class HotelsController < ApplicationController
             @hotels = Hotel.most_rated
         else
             @hotels = Hotel.all
-        end
+        end 
 
     end
 
     def show
-        @hotel = Hotel.find_by_id(params[:id])
     end
 
     def new
@@ -37,11 +39,9 @@ class HotelsController < ApplicationController
     end
 
     def edit
-        @hotel = Hotel.find_by_id(params[:id])
     end
 
     def update
-        @hotel = Hotel.find_by_id(params[:id])
         if @hotel.update(hotel_params)
             redirect_to hotel_path(@hotel)
         else
@@ -50,16 +50,31 @@ class HotelsController < ApplicationController
     end
 
     def destroy
-        
-        @hotel = Hotel.find_by_id(params[:id])
-        byebug
         @hotel.destroy
         redirect_to hotels_path
     end
 
     private
+    def redirect_if_not_authorized
+        if !@hotel || @hotel.user != current_user
+            flash[:error] = "You should be logged in"
+            redirect_to login_path
+        end
+    end
+
+    def set_hotel
+        @hotel = Hotel.find_by_id(params[:id])
+    end
 
     def hotel_params
         params.require(:hotel).permit(:name, :price, :free_wifi, :free_breakfast, :location_id, location_attributes: [:city, :state])
     end
 end
+
+
+# <% if @rating.user == current_user %>
+# <h4><%= link_to "EDIT", edit_rating_path(@rating)%></h4>
+# <% end %>
+# <% if  session[:user_id] == @rating.user_id %>
+# <%= link_to "DELETE", rating_path(@rating), method: :delete %>
+# # <% end %> 

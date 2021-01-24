@@ -2,6 +2,7 @@
 <html style="height: 100%;">
 
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotelify</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -11,26 +12,32 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div class='container' style="height: 100%; padding:0;" >
-
-  <div class='header' style="background: #7952b3;">
-  <% if logged_in? %>
-  <button type="button" class="btn btn-outline-secondary"><%= link_to "Log Out", logout_path, method: :delete %></button>
-    <%= link_to "Add a Hotel", new_hotel_path %>
-    <%= link_to "Add a rating", new_rating_path %>
-  <% end %>
-    
-    <%= link_to "All Hotels", hotels_path %>
-    <%= link_to "All ratings", ratings_path %>
-    <%= link_to "All locations", locations_path %>
-    <%= link_to "Login", login_path %>
-    <%= link_to "Sign Up", signup_path %>
-  </div>
-
-  <body style="height: 100%;">
-  <div><%= flash[:message] %></div>
-  
-    <%= yield %>
+  <div class='container' style="height: 150%; padding:0;" >
+    <div class='header' style="background: #7952b3;">
+      <div class="sidenav">
+        <% if logged_in? %>
+          <%= link_to "Log Out", logout_path, method: :delete %></button>
+          <%= link_to "Add a Hotel", new_hotel_path %>
+          <%= link_to "All Hotels", hotels_path %>
+          <%= link_to "Add a rating", new_rating_path %>
+        <% else %>
+          <%= link_to "All Hotels", hotels_path %>
+          <%= link_to "Login", login_path %>
+          <%= link_to "Sign Up", signup_path %>
+        <% end %>
+      </div>
     </div>
+  <body style="height: 100%;">
+  
+  <div><%= flash[:message] %></div>
+  <div class="main">
+  <h1>HOTELIFY</h1>
+    <%= yield %>
+
+  </div>
+  </div>
+  </div>
+    
+    
   </body>
 </html>

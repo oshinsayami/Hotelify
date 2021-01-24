@@ -14,6 +14,7 @@
  *= require_self
  */
 @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
 .container {
   background: linear-gradient(to bottom, #ffffff 0%, #ff99cc 100%);
 }
@@ -38,10 +39,18 @@ form#new_hotel {
   grid-template-rows: repeat(9, 42px);
   row-gap: 10px;
   padding-left: 16px;
+  border: 5px solid gray;
+  padding: 18px;
+  width: 40%;
+  border-radius: 15px;
+  margin: auto;
 }
+
 form#new_hotel div {
+  font-size: 20.9px;
   display: grid;
   grid-template-columns: 248px 251px;
+  align-items: center;
 }
 
 form#new_hotel button,
@@ -49,13 +58,45 @@ html [type="submit"] {
   -webkit-appearance: button;
   background: rgba(255, 95, 95, 0.945);
   border: none;
-  border-radius: 5px;
-  padding: 6px;
-  width: 50%;
+  border-radius: 19px;
+  padding: 4px;
+  width: 180px;
   color: white;
+  /* display:block;
+  margin-left: 246px; */
 }
 
 h1 {
-  color: red;
+  color: rgb(76, 0, 255);
   padding: 14px;
+}
+ 
+h2 {
+  padding-left: 596px;
+}
+
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 199px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding-left: 67px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
 }
