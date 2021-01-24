@@ -1,8 +1,8 @@
 <h1> <%= @hotel.name %> </h1>
 <% if @hotel.user == current_user %>
-<h4><%= link_to "EDIT HOTEL", edit_hotel_path(@hotel)%></h4>
+<h4><%= link_to "EDIT HOTEL", edit_hotel_path(@hotel) %></h4>
 <% end %>
-<%= link_to "Rate this Hotel", new_hotel_rating_path(@hotel.id)%><br>
+<%= link_to "Rate this Hotel", new_hotel_rating_path(@hotel.id) %><br>
 Location: <%= @hotel.location.city %>, <%= @hotel.location.state %><br>
 Price: $<%= @hotel.price %><br>
 
@@ -13,7 +13,7 @@ Free Breakfast: <%= @hotel.free_breakfast %><br>
 <h4>Recent Ratings </h4>
 <td> Avg rating: <%= @hotel.ratings.average(:stars) %> stars</td>
 <% @hotel.ratings.each do |h| %>
-    <p><%= h.description%>||<%= h.stars%>stars by <%= h.user.name %></p>
+    <p><%= h.description %>||<%= h.stars %>stars by <%= h.user.name %></p>
 <% end %>
 <% else %>
     <h4> No ratings yet!</h4>

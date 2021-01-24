@@ -71,10 +71,3 @@ class HotelsController < ApplicationController
     end
 end
 
-
-# <% if @rating.user == current_user %>
-# <h4><%= link_to "EDIT", edit_rating_path(@rating)%></h4>
-# <% end %>
-# <% if  session[:user_id] == @rating.user_id %>
-# <%= link_to "DELETE", rating_path(@rating), method: :delete %>
-# # <% end %> 

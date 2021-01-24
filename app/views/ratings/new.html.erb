@@ -1,5 +1,5 @@
 <%= display_header %>
-<%= render partial: 'layouts/errors', locals: {object: @rating} %>
+<%= render partial: "layouts/errors", locals: { object: @rating } %>
 <div style="
 grid-template-columns: min-content; 
 row-gap: 10px; 
@@ -12,13 +12,13 @@ margin: auto; ">
         <%= f.hidden_field :hotel_id %>
     <% else %>
     <div>
-    <%= f.label :hotel_id, "Select a hotel" %>
-    <%= f.collection_select :hotel_id, Hotel.ordered_hotel, :id, :name , include_blank: true %>
+        <%= f.label :hotel_id, "Select a hotel" %>
+        <%= f.collection_select :hotel_id, Hotel.ordered_hotel, :id, :name, include_blank: true %>
     </div>
     <% end %>
     <div>
-    <%= f.label :stars %>
-    <%= f.number_field :stars, min:0, max:5 %>
+        <%= f.label :stars %>
+        <%= f.number_field :stars, min: 0, max: 5 %>
     </div>
     <div>
         <%= f.label :description %>

@@ -9,17 +9,17 @@
     </div>
     <div>
         <%= f.label :free_wifi %>
-        <%= f.select :free_wifi, options_for_select(["Select One","Yes", "No"],:disabled => ["Select One"]) %>
+        <%= f.select :free_wifi, options_for_select(["Select One", "Yes", "No"], :disabled => ["Select One"]) %>
     </div>
     <div>
         <%= f.label :free_breakfast %>
-        <%= f.select :free_breakfast, options_for_select(["Select One","Yes", "No"],:disabled => ["Select One"]) %>
+        <%= f.select :free_breakfast, options_for_select(["Select One", "Yes", "No"], :disabled => ["Select One"]) %>
     </div>
 
     <div>Select a Location:</div>
         <div>
             <%= f.label :city %>
-            <%= f.collection_select :location_id, Location.all, :id, :city_and_state, include_blank: 'Select One' %>
+            <%= f.collection_select :location_id, Location.all, :id, :city_and_state, include_blank: "Select One" %>
             </div>
     <div><p style="color: blue;"> Or Create a new Location: </p></div>
         <div>
@@ -34,7 +34,7 @@
             <% end %>
        
 <div>
-    <%= f.submit%>
+    <%= f.submit %>
     </div>
 <% end %>
 
