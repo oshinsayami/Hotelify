@@ -26,5 +26,8 @@ rails s
 You can also delete your hotels and ratings.
 
 #### License
-This program is available as open source under the terms of the MIT License
+This program is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT)
 
+#### Collaborating
+
+Pull Requests are welcome on [GitHub](https://github.com/rebeccahickson/cowboy-up). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://github.com/cjbrock/worlds-best-restaurants-cli-gem/blob/master/contributor-covenant.org) code of conduct.

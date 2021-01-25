@@ -33,8 +33,4 @@ class Hotel < ApplicationRecord
     joins(:location).where("LOWER(hotels.name) LIKE :term OR LOWER(locations.city) LIKE :term OR LOWER(locations.state) LIKE :term", term: "%#{params}%")
 
   end
-
-
-  
-
 end

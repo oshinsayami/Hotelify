@@ -8,8 +8,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
 
   <div class='container' style="height: 150%; padding:0;" >
@@ -17,8 +17,8 @@
       <div class="sidenav">
         <% if logged_in? %>
           <%= link_to "Log Out", logout_path, method: :delete %></button>
-          <%= link_to "Add a Hotel", new_hotel_path %>
           <%= link_to "All Hotels", hotels_path %>
+          <%= link_to "Add a Hotel", new_hotel_path %>
           <%= link_to "Add a rating", new_rating_path %>
         <% else %>
           <%= link_to "All Hotels", hotels_path %>
@@ -31,7 +31,10 @@
   
   <div><%= flash[:message] %></div>
   <div class="main">
-  <h1>HOTELIFY</h1>
+  <main>
+  <div class="header-img">
+  <h1>HOTELIFY - One Stop Shop For Hotel Reviews</h1></div>
+  </main>
     <%= yield %>
 
   </div>

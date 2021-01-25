@@ -1,13 +1,13 @@
-<h1> HOTELS </h1>
-    <%= form_tag("/hotels", method: 'get') do %>
-        <div><%= label_tag(:q, "Where to?") %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search") %> </div>
-    <% end %>
+<%= form_tag("/hotels", method: "get") do %>
+    <div style = "padding-left: 17px; padding-top: 12px;"><%= label_tag(:q, "Where to?") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %> </div>
+<% end %>
 
-    <%= form_with(url: hotels_path, method: 'get', local:true) do |f| %>
-        <%= f.select :filter, ["","Low to High Price", "High to Low Price", "Most Rated"], selected:[""], disabled:[""]%>       
-        <%= f.submit "Filter" %>
+    <%= form_with(url: hotels_path, method: "get", local: true) do |f| %>
+    <div style = "padding-left: 17px;">
+        <%= f.select :filter, ["", "Low to High Price", "High to Low Price", "Most Rated"], selected: [""], disabled: [""] %>       
+        <%= f.submit "Filter" %> </div>
     <% end %>
     
 <br>
@@ -17,11 +17,11 @@
     padding: 10px;
     border: 3px solid white;
 " >
-  <b><%=link_to h.name, hotel_path(h.id) %> -
+  <b><%= link_to h.name, hotel_path(h.id) %> </b>-
     <%= h.location.city %>, <%= h.location.state %> - 
-    $<%= h.price %></b>
-    (<%= h.ratings.average(:stars)%> stars)
-    <%= link_to "Rate this Hotel", new_hotel_rating_path(h.id)%><br>
+    <b>$<%= h.price %></b>
+    (Average: <%= h.ratings.average(:stars) %> stars from <%= h.ratings.count %> ratings)
+    <%= link_to "Rate this Hotel", new_hotel_rating_path(h.id) %><br>
     Free Wifi: <%= h.free_wifi %><br>
     Free Breakfast: <%= h.free_breakfast %><br>
     </div>
