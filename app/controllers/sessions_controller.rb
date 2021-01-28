@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
         @user = User.create_from_omnioath(auth)
         if @user.valid?
             session[:user_id] = @user.id
+            flash[:message] = "Please change your password"
             redirect_to user_path(@user)
         else
             flash[:error] = @user.errors.full_messages.join(", ")

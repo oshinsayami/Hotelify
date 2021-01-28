@@ -3,6 +3,7 @@ Welcome <%= @user.name %><br>
 </h3>
 <div style="
     padding-left: 12px;">
+    <%= flash[:message] %>
 <%= link_to "Edit Your Profile", edit_user_path(@user) %>
 
 
