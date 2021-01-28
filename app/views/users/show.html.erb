@@ -10,11 +10,14 @@ Welcome <%= @user.name %><br>
 <% if !@user.ratings.empty? %>
 <h4>Your Recent ratings:<br></h4>
 <% @user.ratings.each do |r| %>
-    
+    <div style="
+    border: 3px solid white;" >
     <%= link_to r.hotel.name, hotel_path(r.hotel_id) %> - <%= r.stars %> stars - <%= r.description %><br>
     <% if @user == current_user %>
     <%= link_to "Edit", edit_rating_path(r.id) %> <%= link_to "Delete", rating_path(r.id), method: :delete %><br>
+    </div>
     <% end %>
+    
     
 <% end %>
 <% else %>
@@ -24,9 +27,10 @@ Welcome <%= @user.name %><br>
 <% if !@user_hotels.empty? %>
 <h4> Hotels added by you:</h4>
 <% @user_hotels.each do |r| %>
-
+<div style="border: 3px solid white;" >
     <%= link_to r.name, hotel_path(r.id) %><br>
     <%= link_to "Edit", edit_hotel_path(r.id) %> <%= link_to "Delete", hotel_path(r.id), method: :delete %><br>
+</div>
 </div>
 <% end %>
 <% else %>

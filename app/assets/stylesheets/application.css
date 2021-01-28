@@ -84,6 +84,24 @@ html [type="submit"] {
   align-items: center;
 }
 
+.edit_user {
+  display: grid;
+  row-gap: 10px;
+  padding-left: 16px;
+  border: 5px solid gray;
+  padding: 18px;
+  width: 40%;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.edit_user div {
+  font-size: 20.9px;
+  display: grid;
+  grid-template-columns: 248px 251px;
+  align-items: center;
+}
+
 
 h1 {
   color: #ddec06;
@@ -99,9 +117,6 @@ h3 {
   padding-left: 10px;
 }
 
-h4 {
-  padding-left: 10px;
-}
 
 
 .sidenav {
