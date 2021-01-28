@@ -1,7 +1,11 @@
 <h3>
 Welcome <%= @user.name %><br>
 </h3>
-<br>
+<div style="
+    padding-left: 12px;">
+<%= link_to "Edit Your Profile", edit_user_path(@user) %>
+</div>
+
 <p><%= flash[:error] %></p>
 <h4>Your Recent ratings:<br></h4>
 <% @user.ratings.each do |r| %>
@@ -15,3 +19,15 @@ Welcome <%= @user.name %><br>
     <% end %>
     </div>
 <% end %>
+
+<h4> Hotels added by you:</h4>
+<% @user_hotels.each do |r| %>
+    <div style="
+    padding: 10px;
+    border: 3px solid white;
+" >
+    <%= link_to r.name, hotel_path(r.id) %><br>
+    <%= link_to "Edit", edit_hotel_path(r.id) %> <%= link_to "Delete", hotel_path(r.id), method: :delete %><br>
+</div>
+<% end %>
+

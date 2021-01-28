@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/' => 'hotels#index'
-  get '/auth/google_oauth2/callback' => 'sessions#omniauth'  
+  get '/auth/:provider/callback' => 'sessions#omniauth'  
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'

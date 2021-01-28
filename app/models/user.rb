@@ -7,9 +7,10 @@ class User < ApplicationRecord
     
     has_secure_password
 
-    def self.login_by_google(auth)
-        self.find_or_create_by(email: auth[:info][:email]) do |u|
+    def self.create_from_omnioath(auth)
+        self.find_or_create_by(uid: auth[:uid], provider: auth[:provider]) do |u|
             u.name = auth["info"]["name"]
+            u.email = auth["info"]["email"]
             u.password = SecureRandom.hex(13)
         end
     end

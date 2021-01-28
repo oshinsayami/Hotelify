@@ -7,16 +7,30 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to '/'
+            redirect_to user_path(@user)
         else
             render :new
         end
 
     end
 
+    def edit
+        set_user
+        redirect_if_not_authorized
+    end
+
+    def update
+        set_user
+        if @user.update(user_params)
+            redirect_to user_path(@user)
+         else
+            render :edit 
+        end
+    end
 
     def show
         @user = User.includes(hotels: :ratings).find_by_id(params[:id])
+        @user_hotels = Hotel.where(user_id: @user.id)
         redirect_if_not_authorized
         redirect_to user_path(@user) if !@user
     end
@@ -31,5 +45,9 @@ class UsersController < ApplicationController
         if !@user || @user != current_user
             render :invalid
         end
+    end
+
+    def set_user
+        @user = User.find_by_id(params[:id])
     end
 end

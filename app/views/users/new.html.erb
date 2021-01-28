@@ -1,6 +1,6 @@
 <h2>Create an account</h2>
 
-<%= render partial: 'layouts/errors', locals: {object: @user} %>
+<%= render partial: "layouts/errors", locals: { object: @user } %>
 
 <div style="
 display: grid; 
@@ -10,25 +10,10 @@ border: 3px solid gray;
 padding: 18px;
 width: 15%;
 margin: auto; ">
-<%= button_to "Sign in with Google", "/auth/google_oauth2" %>
+<%= button_to "Sign up with Google", "/auth/google_oauth2" %>
 
-<%= form_for(:user) do |f| %>
-    <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    </div>
-    <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    </div>
-    <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    </div>
-    <div>
-    <%= f.submit "Create account" %>
-    </div>
-<% end %>
+<%= render "form" %>
+
 <div style="font-size: small;">
 Already have an account? 
 <%= link_to "Login", login_path %>
