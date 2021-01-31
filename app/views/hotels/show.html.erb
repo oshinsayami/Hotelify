@@ -16,6 +16,7 @@ Free Breakfast: <%= @hotel.free_breakfast %><br>
 <% if !@hotel.ratings.empty? %><br>
 <h4>Recent Ratings </h4>
 
+
 <td> Avg rating: <%= @hotel.ratings.average(:stars) %> stars</td><br><br>
 <% @hotel.ratings.each do |h| %>
     <p><%= h.description %> 
