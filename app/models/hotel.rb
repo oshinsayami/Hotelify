@@ -6,7 +6,7 @@ class Hotel < ApplicationRecord
 
   scope :low_to_high_price, -> {order("price")}
   scope :high_to_low_price, -> {order("price DESC")}
-  scope :most_rated, ->{joins(:ratings).group('hotels.id').order('count(hotels.id) desc')}
+  scope :most_rated, ->{joins(:ratings).group('hotels.id').order('count(stars) desc')}
   
 
   validates :name, :price, presence: true

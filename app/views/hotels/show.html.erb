@@ -18,7 +18,14 @@ Free Breakfast: <%= @hotel.free_breakfast %><br>
 
 <td> Avg rating: <%= @hotel.ratings.average(:stars) %> stars</td><br><br>
 <% @hotel.ratings.each do |h| %>
-    <p><%= h.description %> <span style="color: #e48812;"><%= h.stars %> stars</span>  by <span style="color: #0aa001;"><%= h.user.name %></span></p>
+    <p><%= h.description %> 
+    <!--<span style="color: #e48812;">
+    <%= h.stars %> 
+    stars</span>  -->
+    <% h.stars.times do %>
+    <span class = "fa fa-star checked"></span>  
+    <% end %>
+    by <span style="color: #0aa001;"><%= h.user.name %></span></p>
 <% end %>
 <% else %>
     <h4> No ratings yet!</h4>

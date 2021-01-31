@@ -3,7 +3,6 @@ Welcome <%= @user.name %><br>
 </h3>
 <div style="
     padding-left: 12px;">
-    <%= flash[:message] %>
 <%= link_to "Edit Your Profile", edit_user_path(@user) %>
 
 
@@ -30,11 +29,16 @@ Welcome <%= @user.name %><br>
 <% @user_hotels.each do |r| %>
 <div style="border: 3px solid white;" >
     <%= link_to r.name, hotel_path(r.id) %><br>
+    <% if @user == current_user %>
     <%= link_to "Edit", edit_hotel_path(r.id) %> <%= link_to "Delete", hotel_path(r.id), method: :delete %><br>
 </div>
-</div>
+
+<% end %>
 <% end %>
 <% else %>
 <%= link_to "Add a Hotel", new_hotel_path %>
 <% end %>
+</div>
+
+
 

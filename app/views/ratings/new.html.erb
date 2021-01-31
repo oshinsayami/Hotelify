@@ -17,18 +17,9 @@ margin: auto; ">
         <%= f.label :hotel_id, "Select a hotel" %>
         <%= f.collection_select :hotel_id, Hotel.ordered_hotel, :id, :name, include_blank: true %>
     </div>
-    <% end %>
-    <div>
-        <%= f.label :stars %>
-        <%= f.number_field :stars, min: 0, max: 5 %>
-    </div>
-    <div>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-    </div> 
-    
-    <div>
-    <%= f.submit %>
-    </div>
+    <% end %>  
+      
+    <%= render partial: "form", locals: { f: f } %>
+
     </div>
 <% end %>

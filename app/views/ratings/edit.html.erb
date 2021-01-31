@@ -10,16 +10,6 @@ padding: 18px;
 width: 30%;
 margin: auto; ">
 <%= form_for(@rating) do |f| %>
-    <div>
-        <%= f.label :stars %>
-        <%= f.number_field :stars, min: 0, max: 5 %>
-    </div>
-    <div>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-    </div> 
-    
-    
-    <%= f.submit %>
+    <%= render partial: "form", locals: { f: f } %>
 <% end %>
 </div>
