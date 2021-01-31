@@ -12,7 +12,11 @@ Welcome <%= @user.name %><br>
 <% @user.ratings.each do |r| %>
     <div style="
     border: 3px solid white;" >
-    <%= link_to r.hotel.name, hotel_path(r.hotel_id) %> - <%= r.stars %> stars - <%= r.description %><br>
+    <%= link_to r.hotel.name, hotel_path(r.hotel_id) %>
+    <% r.stars.times do %>
+    <span class = "fa fa-star checked"></span>  
+    <% end %>
+    <span style="color: #ca805c;"><%= r.description %></span><br>
     <% if @user == current_user %>
     <%= link_to "Edit", edit_rating_path(r.id) %> <%= link_to "Delete", rating_path(r.id), method: :delete %><br>
     </div>

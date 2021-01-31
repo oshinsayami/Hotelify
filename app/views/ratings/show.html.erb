@@ -1,5 +1,9 @@
 <h3> Ratings for <%= @rating.hotel.name %></h3>
 
 <div>
-        <li><%= @rating.description %> by <%= @rating.user.name %></li>
+<li><%= @rating.description %> 
+<% @rating.stars.times do %>
+<span class = "fa fa-star checked"></span>  
+<% end %> -  
+<span style="color: #ca805c;"><%= @rating.user.name %></span></li>
 </div>
