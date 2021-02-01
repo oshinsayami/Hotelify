@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   resources :ratings
   resources :hotels do 
      resources :ratings, only: [:new, :index]
+     
   end
-  resources :locations
+  resources :locations do
+    resources :hotels, only: [:index]
+  end
   resources :users
 
   

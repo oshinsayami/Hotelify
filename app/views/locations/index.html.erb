@@ -1,4 +1,4 @@
 <h1> Locations </h1>
 <% @locations.each do |l| %>
-    <%= l.city %> - <%= l.state %><br>
+    <%= link_to l.city_and_state, location_hotels_path(l.id) %><br>
 <% end %>

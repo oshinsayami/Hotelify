@@ -14,6 +14,10 @@ class HotelsController < ApplicationController
             @hotels = Hotel.low_to_high_price 
         elsif params[:filter] && params[:filter] == "Most Rated"
             @hotels = Hotel.most_rated
+        elsif @location = Location.find_by_id(params[:location_id])
+            # set_hotel
+            @hotels = @location.hotels
+            # @ratings = @hotel.ratings
         else
             @hotels = Hotel.all
         end 
