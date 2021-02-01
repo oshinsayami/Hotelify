@@ -2,6 +2,12 @@
 <%= flash[:error] %>
 <% @ratings.each do |r| %>
     <li> 
-        <strong><%= r.hotel.name %> - <%= r.stars %> stars</strong> - <%= r.description %> by <%= r.user.name %>  
+        <strong>
+            <%= r.hotel.name %> 
+            <% r.stars.times do %>
+                <span class = "fa fa-star checked"></span>  
+            <% end %>
+        </strong> - 
+        <%= r.description %> by <%= r.user.name %>  
     </li>
 <% end %>

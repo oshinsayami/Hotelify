@@ -1,37 +1,29 @@
 <h3> <%= @hotel.name %> </h3>
-<div style="
-    padding-left: 12px;">
-<% if @hotel.user == current_user %>
-<%= link_to "EDIT HOTEL", edit_hotel_path(@hotel) %>
-<%= link_to "DELETE HOTEL", hotel_path(@hotel), method: :delete %>
-<br>
-<% end %>
-
-<%= link_to "Rate this Hotel", new_hotel_rating_path(@hotel.id) %><br>
-Location: <%= @hotel.location.city %>, <%= @hotel.location.state %><br>
-Price: $<%= @hotel.price %><br>
-
-Free Wifi: <%= @hotel.free_wifi %><br>
-Free Breakfast: <%= @hotel.free_breakfast %><br>
-<% if !@hotel.ratings.empty? %><br>
-<h4>Recent Ratings </h4>
-
-
-<td> Avg rating: <%= @hotel.ratings.average(:stars) %> stars</td><br><br>
-<% @hotel.ratings.each do |h| %>
-    <p><%= h.description %> 
-    <!--<span style="color: #e48812;">
-    <%= h.stars %> 
-    stars</span>  -->
-    <% h.stars.times do %>
-    <span class = "fa fa-star checked"></span>  
+<div style="padding-left: 12px;">
+    <% if @hotel.user == current_user %>
+        <%= link_to "EDIT HOTEL", edit_hotel_path(@hotel) %>
+        <%= link_to "DELETE HOTEL", hotel_path(@hotel), method: :delete %>
+        <br>
     <% end %>
-    by <span style="color: #0aa001;"><%= h.user.name %></span></p>
-<% end %>
-<% else %>
-    <h4> No ratings yet!</h4>
-<% end %>
 
+    <%= link_to "Rate this Hotel", new_hotel_rating_path(@hotel.id) %><br>
+    Location: <%= @hotel.location.city %>, <%= @hotel.location.state %><br>
+    Price: $<%= @hotel.price %><br>
+    Free Wifi: <%= @hotel.free_wifi %><br>
+    Free Breakfast: <%= @hotel.free_breakfast %><br>
+    <% if !@hotel.ratings.empty? %><br>
+        <h4>Recent Ratings </h4>
+        <td> Avg rating: <%= @hotel.ratings.average(:stars) %> stars</td><br><br>
+        <% @hotel.ratings.each do |h| %>
+            <p><%= h.description %> 
+            <% h.stars.times do %>
+                <span class = "fa fa-star checked"></span>  
+            <% end %>
+            by <span style="color: #0aa001;"><%= h.user.name %></span></p>
+        <% end %>
+    <% else %>
+        <h4> No ratings yet!</h4>
+    <% end %>
 <div>
 
     

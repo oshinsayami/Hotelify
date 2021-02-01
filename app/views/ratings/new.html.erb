@@ -1,25 +1,18 @@
 <%= display_header %>
 
 <%= render partial: "layouts/errors", locals: { object: @rating } %>
-<div style="
-grid-template-columns: min-content; 
-row-gap: 10px; 
-border: 3px solid gray;
-padding: 18px;
-width: 30%;
-margin: auto; ">
 
-<%= form_for(@rating) do |f| %>
-    <% if params[:hotel_id] %>
-        <%= f.hidden_field :hotel_id %>
-    <% else %>
-    <div>
-        <%= f.label :hotel_id, "Select a hotel" %>
-        <%= f.collection_select :hotel_id, Hotel.ordered_hotel, :id, :name, include_blank: true %>
-    </div>
-    <% end %>  
-      
-    <%= render partial: "form", locals: { f: f } %>
-
-    </div>
-<% end %>
+<div style="grid-template-columns: min-content; row-gap: 10px; border: 3px solid gray;padding: 18px;width: 30%;margin: auto; ">
+    <%= form_for(@rating) do |f| %>
+        <% if params[:hotel_id] %>
+            <%= f.hidden_field :hotel_id %>
+        <% else %>
+            <div>
+                <%= f.label :hotel_id, "Select a hotel" %>
+                <%= f.collection_select :hotel_id, Hotel.ordered_hotel, :id, :name, include_blank: true %>
+            </div>
+        <% end %>  
+        
+        <%= render partial: "form", locals: { f: f } %>
+    <% end %>
+</div>

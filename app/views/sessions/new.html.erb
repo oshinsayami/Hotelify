@@ -1,31 +1,23 @@
 <h2 style="padding-left: 670px!important">Sign in</h2>
 <p style="padding-left: 572px; color: red;"><%= flash[:error] %></p>
 
-<div style="
-display: grid; 
-grid-template-columns: min-content; 
-row-gap: 10px; 
-border: 3px solid gray;
-padding: 18px;
-width: 15%;
-margin: auto; ">
-
-<%= button_to "Login with Google", "/auth/google_oauth2" %>
-<%= form_for(:user) do |f| %>
-    <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+<div style="display: grid; grid-template-columns: min-content; row-gap: 10px; border: 3px solid gray;padding: 18px;width: 15%;margin: auto; ">
+    <%= button_to "Login with Google", "/auth/google_oauth2" %>
+    <%= form_for(:user) do |f| %>
+        <div>
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+        </div>
+        <div>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
+        <div>
+            <%= f.submit "Sign in" %>
+        </div>
+    <% end %>
+    <div style="font-size: small;">
+        Don't have an account? 
+        <%= link_to "Sign Up", signup_path %>
     </div>
-    <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    </div>
-    <div>
-    <%= f.submit "Sign in" %>
-    </div>
-<% end %>
-<div style="font-size: small;">
-Don't have an account? 
-<%= link_to "Sign Up", signup_path %></div>
-
 </div>

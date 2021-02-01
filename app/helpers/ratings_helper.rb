@@ -8,3 +8,5 @@ module RatingsHelper
         end
     end
 end
+
+

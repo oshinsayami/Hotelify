@@ -1,7 +1,7 @@
 <%= form_for(@hotel) do |f| %>
     <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
     </div>
     <div>
         <%= f.label :price %>
@@ -16,25 +16,30 @@
         <%= f.select :free_breakfast, options_for_select(["Select One", "Yes", "No"], :disabled => ["Select One"]) %>
     </div>
 
-    <div>Select a Location:</div>
-        <div>
-            <%= f.label :city %>
-            <%= f.collection_select :location_id, Location.all, :id, :city_and_state, include_blank: "Select One" %>
-            </div>
-    <div><p style="color: blue;"> Or Create a new Location: </p></div>
-        <div>
-            <%= f.fields_for :location do |l| %>
-                <%= l.label :city %>
-                <%= l.text_field :city %>
-                </div>
-                <div>
-                <%= l.label :state %>
-                <%= l.text_field :state %>
-                </div>
-            <% end %>
+    <div>
+        Select a Location:
+    </div>
+    <div>
+        <%= f.label :city %>
+        <%= f.collection_select :location_id, Location.all, :id, :city_and_state, include_blank: "Select One" %>
+    </div>
+     <div>
+        <p style="color: blue;"> Or Create a new Location: </p>
+    </div>
        
-<div>
-    <%= f.submit %>
+    <%= f.fields_for :location do |l| %>
+        <div>
+            <%= l.label :city %>
+            <%= l.text_field :city %>
+        </div>
+        <div>
+            <%= l.label :state %>
+            <%= l.text_field :state %>
+        </div>
+    <% end %>
+       
+    <div>
+        <%= f.submit %>
     </div>
 <% end %>
 

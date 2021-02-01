@@ -1,15 +1,11 @@
 <h2>Edit the rating for <%= @rating.hotel.name %></h2>
 
-<p style="padding-left: 572px; color: red;"><%= flash[:error] %></p>
+<p style="padding-left: 572px; color: red;">
+    <%= flash[:error] %>
+</p>
 
-<div style="
-grid-template-columns: min-content; 
-row-gap: 10px; 
-border: 3px solid gray;
-padding: 18px;
-width: 30%;
-margin: auto; ">
-<%= form_for(@rating) do |f| %>
-    <%= render partial: "form", locals: { f: f } %>
-<% end %>
+<div style="grid-template-columns: min-content; row-gap: 10px; border: 3px solid gray;padding: 18px;width: 30%;margin: auto; ">
+    <%= form_for(@rating) do |f| %>
+        <%= render partial: "form", locals: { f: f } %>
+    <% end %>
 </div>

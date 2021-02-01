@@ -1,35 +1,31 @@
-
-
 <%= form_tag("/hotels", method: "get") do %>
-    <div style = "padding-left: 17px; padding-top: 12px;"><%= label_tag(:q, "Where to?") %>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %> </div>
+    <div style = "padding-left: 17px; padding-top: 12px;">
+        <%= label_tag(:q, "Where to?") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %> 
+    </div>
 <% end %>
 
-    <%= form_with(url: hotels_path, method: "get", local: true) do |f| %>
+<%= form_with(url: hotels_path, method: "get", local: true) do |f| %>
     <div style = "padding-left: 17px;">
         <%= f.select :filter, ["", "Low to High Price", "High to Low Price", "Most Rated"], selected: [""], disabled: [""] %>       
-        <%= f.submit "Filter" %> </div>
-    <% end %>
+        <%= f.submit "Filter" %> 
+    </div>
+<% end %>
     
 <br>
 
 <% @hotels.each do |h| %>
-    <div style="
-    padding: 10px;
-    border: 3px solid white;
-" >
-  <b><%= link_to h.name, hotel_path(h.id) %> </b>-
-    <%= h.location.city %>, <%= h.location.state %> - 
-    <b>$<%= h.price %></b>
-    
-    
-    <!--(Average: <%= h.ratings.average(:stars) %> stars from <%= h.ratings.count %> ratings) -->
-    (Average: <% h.ratings.average(:stars).to_i.times do %>
-    <span class = "fa fa-star checked"></span>  
-    <% end %> <span style="color: #ca805c;"><%= h.ratings.average(:stars) %> stars from <%= h.ratings.count %> ratings</span>)
-    <%= link_to "Rate this Hotel", new_hotel_rating_path(h.id) %><br>
-    Free Wifi: <%= h.free_wifi %><br>
-    Free Breakfast: <%= h.free_breakfast %><br>
+    <div style="padding: 10px; border: 3px solid white;">
+    <b><%= link_to h.name, hotel_path(h.id) %> </b>-
+        <%= h.location.city %>, <%= h.location.state %> - 
+        <b>$<%= h.price %></b>
+        (Average: <% h.ratings.average(:stars).to_i.times do %>
+            <span class = "fa fa-star checked"></span>  
+        <% end %> 
+        <span style="color: #ca805c;"><%= h.ratings.average(:stars) %> stars from <%= h.ratings.count %> ratings</span>)
+        <%= link_to "Rate this Hotel", new_hotel_rating_path(h.id) %><br>
+        Free Wifi: <%= h.free_wifi %><br>
+        Free Breakfast: <%= h.free_breakfast %><br>
     </div>
 <% end %>

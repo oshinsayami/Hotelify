@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+
     before_action :set_rating, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_logged_in, only: [:new, :create]
     before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]

@@ -1,4 +1,5 @@
 class HotelsController < ApplicationController
+
     before_action :set_hotel, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_logged_in, only: [:show, :new, :create]
     before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
