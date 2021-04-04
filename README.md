@@ -25,6 +25,11 @@ rails s
 * When logged in, you can add hotels that you've visited and rate them as well. You can edit the hotels you've created and the ratings that you've made.
 You can also delete your hotels and ratings.
 
+Blog on the project: https://mdrsimran.medium.com/my-rails-project-hotelify-4d26b879ae6e
+
+Here is the link to the demo of the project: https://www.youtube.com/watch?v=oPyq7h2Bihs
+
+
 #### License
 This program is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT)
 
